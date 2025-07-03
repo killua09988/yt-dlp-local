@@ -92,18 +92,16 @@ HTML_TEMPLATE = """
             {% endif %}
         {% endwith %}
         
-        <form method="POST" action="{{ url_for('download') }}">
+        <form action="{{ url_for('download') }}" method="POST">
             <div class="form-group">
                 <label for="video_url">Video URL:</label>
-                <input type="url" id="video_url" name="video_url" required 
-                       placeholder="https://www.youtube.com/watch?v=..."
-                       value="{{ request.form.get('video_url', '') }}">
+                <input type="url" id="video_url" name="video_url" placeholder="https://www.youtube.com/watch?v=..." required value="{{ request.form.get('video_url', '') }}">
             </div>
             <button type="submit">Download Video</button>
         </form>
         
         <div class="footer">
-            <p>created with Comet Assistant</p>
+            created with Comet Assistant
         </div>
     </div>
 </body>
@@ -191,4 +189,4 @@ def download():
             pass
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5050)
